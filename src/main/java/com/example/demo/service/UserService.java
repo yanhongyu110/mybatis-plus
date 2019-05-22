@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.model.User;
+import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
+import com.example.demo.model.User;
 
 /**
  * <p>
@@ -12,5 +14,4 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2019-05-21
  */
 public interface UserService extends IService<User> {
-
 }

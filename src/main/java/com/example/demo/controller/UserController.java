@@ -7,12 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.baomidou.mybatisplus.mapper.Condition;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.example.demo.config.datasource.ContextConst;
-import com.example.demo.config.datasource.TargetDateSouce;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 
@@ -31,7 +28,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@TargetDateSouce(ContextConst.DataSourceType.CLUSTER)
+	
 	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
 	@ResponseBody
 	public String insertUser() {
@@ -42,7 +39,6 @@ public class UserController {
 		userService.insert(user);
 		return "suuess";
 	}
-	@TargetDateSouce(ContextConst.DataSourceType.MASTER)
 	@RequestMapping(value = "/queryUser", method = RequestMethod.POST)
 	@ResponseBody
 	public Page<User> queryUser() {

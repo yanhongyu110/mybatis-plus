@@ -93,6 +93,9 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
+		
+		 <!--把文件打包，放在resource目录下。--> 
+		 <resources> <resource> <directory>${basedir}/src/main/java</directory> <includes> <include>**/*.properties</include> <include>**/*.xml</include> <include>**/*.yml</include> </includes> </resource> <resource> <directory>${basedir}/src/main/resources</directory> </resource> </resources>
 
+	</build>
 </project>
