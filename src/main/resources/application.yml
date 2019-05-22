@@ -50,6 +50,6 @@ spring:
         
 logging:
   file: D:/log/log.txt
-  level: #低版本的springboot日志配置有所不同
+  level: 
     com.example.demo.dao: debug
     root: info

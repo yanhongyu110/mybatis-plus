@@ -6,6 +6,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import com.example.demo.config.datasource.ContextConst.DataSourceType;
+
 /**
  * 自定义注解
  * 更改数据源时 在service方法上使用
@@ -16,5 +18,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface TargetDateSouce {
-    ContextConst.DataSourceType value() default ContextConst.DataSourceType.MASTER;
+    DataSourceType value() default DataSourceType.MASTER;
 }

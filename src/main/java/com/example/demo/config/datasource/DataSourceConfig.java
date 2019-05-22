@@ -21,7 +21,7 @@ public class DataSourceConfig {
 		return DruidDataSourceBuilder.create().build();
 	}
 
-	@Bean //
+	@Bean
 	@ConfigurationProperties(prefix = "spring.datasource.druid.cluster")
 	public DruidDataSource clusterDataSource() {
 		return DruidDataSourceBuilder.create().build();
@@ -30,11 +30,11 @@ public class DataSourceConfig {
 	@Primary
 	@Bean
 	public DataSource dynamicDataSource() {
-		//创建当前数据源
+		// 创建当前数据源
 		DynamicDataSource dynamicDataSource = new DynamicDataSource();
 		// 配置默认数据源
 		dynamicDataSource.setDefaultTargetDataSource(masterDataSource());
-		// 配置多数据源这里的key一定要是string类型，枚举类型并不支持，所以用到枚举中name()方法转成string，或者用toString方法。
+		// 配置多数据源这里的key一定要是string类型
 		HashMap<Object, Object> dataSourceMap = new HashMap<Object, Object>();
 		dataSourceMap.put(ContextConst.DataSourceType.MASTER.name(), masterDataSource());
 		dataSourceMap.put(ContextConst.DataSourceType.CLUSTER.name(), clusterDataSource());

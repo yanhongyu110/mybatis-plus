@@ -28,12 +28,21 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 	
 	@TargetDateSouce(ContextConst.DataSourceType.CLUSTER)
 	public boolean insert(User user) {
-		userMapper.insert(user);
+		/**
+		 * mybatis plus 提供两种crud 方式
+		 * 1 直接使用实体类crud
+		 */
+		user.insert();
+		/**
+		 * 2 使用service dao crud
+		 */
+//		userMapper.insert(user);
 		return true;
 	}
 	
 	@TargetDateSouce(ContextConst.DataSourceType.MASTER)
     public Page<User> selectPage(Page<User> page, Wrapper<User> wrapper) {
+		//Wrapper 提供sql拼接的各种方法 in like between order by 等等
 		page.setRecords(userMapper.selectPage(page, wrapper));
         return page;
 	}

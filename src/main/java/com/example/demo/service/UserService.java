@@ -1,7 +1,5 @@
 package com.example.demo.service;
 
-import com.baomidou.mybatisplus.mapper.Wrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 import com.example.demo.model.User;
 
